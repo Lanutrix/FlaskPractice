@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+create-article
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Все статьи на сайте</h1>
+    {% for el in articles %}
+    <div class="alert alert-info">
+        <h2>{{ el.title }}</h2>
+        <p>{{ el.intro }}</p>
+        <p>Дата: {{ el.date.date() }}</p>
+        <a href="/posts/{{ el.id }}" class="btn btn-warning">Подробнее</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
