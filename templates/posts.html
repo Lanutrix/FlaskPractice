@@ -7,13 +7,17 @@ create-article
 {% block body %}
 <div class="container mt-5">
     <h1>Все статьи на сайте</h1>
+    {% if articles|length > 0 %}
     {% for el in articles %}
-    <div class="alert alert-info">
-        <h2>{{ el.title }}</h2>
-        <p>{{ el.intro }}</p>
-        <p>Дата: {{ el.date.date() }}</p>
-        <a href="/posts/{{ el.id }}" class="btn btn-warning">Подробнее</a>
-    </div>
-    {% endfor %}
+        <div class="alert alert-info">
+            <h2>{{ el.title }}</h2>
+            <h3>{{ el.intro }}</h3>
+            <h5>Дата: {{ el.date.date() }}</h5>
+            <a href="/posts/{{ el.id }}" class="btn btn-warning">Подробнее</a>
+        </div>
+        {% endfor %}
+    {% else %}
+    <h3>На нашем сайте ещё нет статей</h3>
+    {% endif %}
 </div>
 {% endblock %}

@@ -7,10 +7,12 @@
 {% block body %}
 <div class="container mt-5">
     <h1>{{ article.title }}</h1>
-    <p class="">{{ article.text }}</p>
+    
     <div class="alert alert-info">
-        
-        <p>Дата: {{ article.date.date() }}</p>
+        <h3>{{ article.text }}</h3><br><hr>
+        <h5><b>Дата: {{ article.date.date() }}</b></h5>
+    <a href="/posts/{{ article.id }}/delete" class="btn btn-danger">Удалить</a>
+    <a href="/posts/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
     </div>
     
 </div>
